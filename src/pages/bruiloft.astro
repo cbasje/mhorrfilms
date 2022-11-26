@@ -1,0 +1,73 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<Layout>
+    <Nav />
+
+    <div class="headerfotobruiloft">
+        <div class="titel" id="m0">
+            <h1 style="font-size: 38px;">BRUILOFTSFILMS</h1>
+        </div>
+    </div>
+
+    <div class="pagina" style="top: calc(100vh + 50px)">
+        <p class="p1">
+            Wil je jullie bruiloft laten filmen? Neem vrijblijvend contact op
+            via <a
+                href="mailto:mail@mhorrfilms.nl"
+                style="text-decoration: none; color: rgb(166, 136, 99);"
+                >mail@mhorrfilms.nl</a
+            >
+            <br />Onderstaande filmpjes geven een idee van wat je kunt
+            verwachten.
+        </p>
+        <ul>
+            <li
+                style="list-style-type: none; margin: 0; padding: 0; display: inline-block"
+            >
+                <iframe
+                    src="https://www.youtube.com/embed/tvvP_2WvoPo"
+                    style="position: relative; margin-bottom: 22px;"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </li>
+            <li
+                style="list-style-type: none; margin: 0; padding: 0; display: inline-block"
+            >
+                <iframe
+                    src="https://www.youtube.com/embed/4Q3894EsVLY"
+                    style="position: relative; margin-bottom: 22px;"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </li>
+        </ul>
+
+        <div class="voetnoot">
+            <table class="voetnoot">
+                <tr>
+                    <td id="links"><p class="p1">Email:</p></td>
+                    <td id="rechts"
+                        ><p class="p4">
+                            <a href="mailto:mail@mhorrfilms.nl">
+                                mail@mhorrfilms.nl
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="links"><p class="p1">KvK-nummer:</p></td>
+                    <td id="rechts"><p class="p1">82601941</p></td>
+                </tr>
+                <tr>
+                    <td id="links"><p class="p1">Btw-id:</p></td>
+                    <td id="rechts"><p class="p1">NL003705160B02</p></td>
+                </tr>
+            </table><br />
+            <p class="p1">Website door Ruben van Briemen</p>
+        </div>
+    </div>
+</Layout>
