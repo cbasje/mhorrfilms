@@ -1,6 +1,12 @@
 ---
 import Nav from "../components/Nav.astro";
 import Layout from "../layouts/Layout.astro";
+import { diffInYear } from "../lib/date";
+
+const today = new Date();
+const birthday = new Date("1999-07-10");
+
+const leeftijd = diffInYear(today, birthday);
 ---
 
 <Layout>
@@ -17,11 +23,11 @@ import Layout from "../layouts/Layout.astro";
             <img src="graphics/Ruben.jpg" height="300px" id="profielfoto" />
             <!--breedte = 530px-->
             <div id="tekstvak">
-                    Welkom bij Mhorrfilms. Ik ben Ruben van Briemen, een <span
-                        id="leeftijd"></span>-jarige student Industrieel
-                    Ontwerpen in Delft. Naast mijn studie steek ik veel tijd,
-                    energie en enthousiasme in film; eerst vooral bij de
                 <p class="p1" style="color: black;">
+                    Welkom bij Mhorrfilms. Ik ben Ruben van Briemen, een
+                    {leeftijd}-jarige student Industrieel Ontwerpen in Delft.
+                    Naast mijn studie steek ik veel tijd, energie en
+                    enthousiasme in film; eerst vooral bij de
                     studentenvereniging waar ik lid ben, maar de laatste tijd
                     pak ik meer filmprojecten op, waaronder
                     bruiloftsvideografie.
@@ -31,23 +37,6 @@ import Layout from "../layouts/Layout.astro";
                 </p>
             </div>
         </div>
-        <script>
-            var date = new Date();
-            var y = date.getFullYear();
-            var m = date.getMonth() + 1;
-            var d = date.getDate();
-            if (m < 7) {
-                document.getElementById("leeftijd").innerHTML = y - 2000;
-            } else if (m == 7) {
-                if (d < 10) {
-                    document.getElementById("leeftijd").innerHTML = y - 2000;
-                } else {
-                    document.getElementById("leeftijd").innerHTML = y - 1999;
-                }
-            } else {
-                document.getElementById("leeftijd").innerHTML = y - 1999;
-            }
-        </script>
     </div>
 
     <div id="showreel">
