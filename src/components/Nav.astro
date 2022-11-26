@@ -2,63 +2,74 @@
 import { Icon } from "astro-icon";
 ---
 
-<div class="menubalk" id="m0">
-    <p style="margin: 12px; display: block">MENU</p>
-    <div class="menuknop" id="knop0">
+<div class="menubalk">
+    <p class="p1" style="margin: 12px; display: block">MENU</p>
+    <button class="menuknop" id="knop0">
         <Icon pack="ph" name="list" style={{ color: "var(--goud)" }} />
-    </div>
+    </button>
 </div>
-<div class="menubalk" id="m1">
-    <div class="menuknop" id="knop1">
-        <Icon pack="ph" name="x" style={{ color: "var(--goud)" }} />
+<div class="menuunderlay">
+    <div class="menubalk">
+        <button class="menuknop" id="knop1">
+            <Icon pack="ph" name="x" style={{ color: "var(--goud)" }} />
+        </button>
     </div>
-</div>
-<div class="menuunderlay" id="m1">
+
     <img class="logomenu" src="graphics/logo1.png" />
     <div class="menu">
         <ul>
-            <a href="index.html">
-                <li>
-                    <ul>
-                        <li>
-                            <Icon
-                                pack="ph"
-                                name="caret-right"
-                                style={{ color: "var(--goud)" }}
-                            />
-                        </li>
-                        <li><h2>HOME</h2></li>
-                        <li>
-                            <Icon
-                                pack="ph"
-                                name="caret-left"
-                                style={{ color: "var(--goud)" }}
-                            />
-                        </li>
-                    </ul>
-                </li>
-            </a>
-            <a href="bruiloft/index.html">
-                <li>
-                    <ul>
-                        <li>
-                            <Icon
-                                pack="ph"
-                                name="caret-right"
-                                style={{ color: "var(--goud)" }}
-                            />
-                        </li>
-                        <li><h2>BRUILOFTSFILMS</h2></li>
-                        <li>
-                            <Icon
-                                pack="ph"
-                                name="caret-left"
-                                style={{ color: "var(--goud)" }}
-                            />
-                        </li>
-                    </ul>
-                </li>
-            </a>
+            <li>
+                <a href="/" class="active">
+                    <div>
+                        <Icon
+                            pack="ph"
+                            name="caret-right"
+                            style={{ color: "var(--goud)" }}
+                        />
+                        <h2>HOME</h2>
+                        <Icon
+                            pack="ph"
+                            name="caret-left"
+                            style={{ color: "var(--goud)" }}
+                        />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/bruiloft">
+                    <div>
+                        <Icon
+                            pack="ph"
+                            name="caret-right"
+                            style={{ color: "var(--goud)" }}
+                        />
+                        <h2>BRUILOFTSFILMS</h2>
+                        <Icon
+                            pack="ph"
+                            name="caret-left"
+                            style={{ color: "var(--goud)" }}
+                        />
+                    </div>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
+
+<script>
+    const knop0 = document.querySelector<HTMLButtonElement>("button#knop0")!;
+    const knop1 = document.querySelector<HTMLButtonElement>("button#knop1")!;
+    const menubalk = document.querySelector<HTMLDivElement>("div.menubalk")!;
+    const underlay =
+        document.querySelector<HTMLDivElement>("div.menuunderlay")!;
+    const titel = document.querySelector<HTMLDivElement>("div.titel")!;
+
+    const toggleMenu = (toOpen = true) => {
+        menubalk.style.display = toOpen === true ? "none" : "initial";
+        underlay.style.display = toOpen === true ? "initial" : "none";
+        titel.style.display = toOpen === true ? "none" : "initial";
+    };
+
+    knop0.addEventListener("click", () => toggleMenu(true));
+    knop1.addEventListener("click", () => toggleMenu(false));
+</script>

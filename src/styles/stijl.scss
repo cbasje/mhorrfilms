@@ -121,11 +121,6 @@ div.titel {
 }
 
 /*==================  menu  =============================================*/
-#m0 {
-}
-#m1 {
-    display: none;
-}
 div.menubalk {
     position: fixed;
     width: 110px;
@@ -136,7 +131,7 @@ div.menubalk {
     z-index: 7;
 }
 
-div.menuknop {
+button.menuknop {
     position: fixed;
     width: 25px;
     height: 25px;
@@ -157,6 +152,7 @@ div.menuunderlay {
     background-color: var(--groen);
     z-index: 6;
     opacity: 0.95;
+    display: none;
 }
 img.logomenu {
     position: fixed;
@@ -182,44 +178,34 @@ div.menu a {
 div.menu ul li {
     list-style-type: none;
     display: block;
-    overflow: hidden;
-    height: 50px;
-}
-div.menu ul li ul {
-}
-div.menu ul li ul li {
-    list-style-type: none;
-    display: inline-block;
-}
-div.menu ul li ul li img {
-    height: 30px;
-    margin: 10px;
-}
-img#passive {
-    opacity: 0;
-}
-img#active {
-    opacity: 0.5;
-}
-div.menu ul li:hover > ul li img#passive {
-    opacity: 0.8;
-    height: 24px;
-    margin: 13px;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-}
-div.menu ul li:hover > ul li img#active {
-    opacity: 0.9;
-    height: 24px;
-    margin: 13px;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+
+    > a {
+        > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        svg {
+            width: 1.75rem;
+            height: 1.75rem;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        &:hover {
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+                opacity: 0.9;
+            }
+        }
+
+        &.active svg {
+            opacity: 0.5;
+        }
+    }
 }
 div.menu h2 {
     color: var(--accentkleur);
