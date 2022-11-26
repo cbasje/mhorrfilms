@@ -17,16 +17,7 @@ h1 {
 h2 {
     font-family: "Raleway", sans-serif;
 }
-p3 {
-    font-family: "Raleway", sans-serif;
-}
-p1 {
-    font-family: "Raleway", sans-serif;
-}
-p2 {
-    font-family: "Raleway", sans-serif;
-}
-p4 {
+p {
     font-family: "Raleway", sans-serif;
 }
 
@@ -47,7 +38,23 @@ h2 {
     margin: 0px;
     color: var(--zwart);
 }
-p3 {
+.p1 {
+    /*over*/
+    font-size: 17px;
+    color: var(--accentkleur);
+}
+.p2 {
+    /*tijdbalk*/
+    font-size: 17px;
+    font-weight: 400;
+    margin: 22px;
+    color: var(--accentkleur);
+    display: block;
+}
+div.jaartallen .p2 {
+    margin: 0px;
+}
+.p3 {
     /*KOPPEN TIJDBALK*/
     font-size: 45px;
     font-weight: 400;
@@ -56,31 +63,16 @@ p3 {
     padding-right: 35px;
     display: block;
 }
-p1 {
-    /*over*/
-    font-size: 17px;
-    color: var(--accentkleur);
-}
-p2 {
-    /*tijdbalk*/
-    font-size: 17px;
-    font-weight: 400;
-    margin: 22px;
-    color: var(--accentkleur);
-    display: block;
-}
-div.jaartallen p2 {
-    margin: 0px;
-}
-p4 {
+.p4 {
     /*voettekst*/
     font-size: 17px;
     color: var(--accentkleur);
     opacity: 0.9;
-}
-a.p4 {
-    color: var(--accentkleur);
-    text-decoration: none;
+
+    a {
+        color: var(--accentkleur);
+        text-decoration: none;
+    }
 }
 
 html,
@@ -830,15 +822,15 @@ div.headerfotobruiloft {
     h2#knop {
         font-size: 22px;
     }
-    p3 {
-        font-size: 21px;
-        padding-left: 13px;
-    }
-    p2 {
+    .p2 {
         font-size: 15px;
         /*margin: 5px;*/
     }
-    p4 {
+    .p3 {
+        font-size: 21px;
+        padding-left: 13px;
+    }
+    .p4 {
         font-size: 15px;
     }
     #banner {
