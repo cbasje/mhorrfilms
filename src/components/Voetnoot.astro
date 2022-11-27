@@ -1,21 +1,44 @@
 <footer>
     <table>
         <tr>
-            <td id="links"><p>Email:</p></td>
-            <td id="rechts">
-                <p>
-                    <a href="mailto:mail@mhorrfilms.nl"> mail@mhorrfilms.nl</a>
-                </p>
+            <td class="links">Email:</td>
+            <td class="rechts">
+                <a href="mailto:mail@mhorrfilms.nl"> mail@mhorrfilms.nl</a>
             </td>
         </tr>
         <tr>
-            <td id="links"><p>KvK-nummer:</p></td>
-            <td id="rechts"><p>82601941</p></td>
+            <td class="links">KvK-nummer:</td>
+            <td class="rechts">82601941</td>
         </tr>
         <tr>
-            <td id="links"><p>Btw-id:</p></td>
-            <td id="rechts"><p>NL003705160B02</p></td>
+            <td class="links">Btw-id:</td>
+            <td class="rechts">NL003705160B02</td>
         </tr>
     </table>
     <p>Website door Ruben van Briemen</p>
 </footer>
+
+<style lang="scss">
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+
+            td {
+                padding: 0.25rem;
+
+                &.links {
+                    text-align: right;
+                }
+                &.rechts {
+                    text-align: left;
+                }
+            }
+        }
+    }
+</style>
