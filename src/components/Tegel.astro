@@ -1,0 +1,125 @@
+---
+import Icon from "astro-icon";
+import type { TegelFrontmatter } from "../lib/types";
+
+export interface Props {
+    index: number;
+    tegel: TegelFrontmatter;
+}
+
+const { index, tegel } = Astro.props;
+---
+
+<tegel-wrapper data-index={index}>
+    <li>
+        <button>
+            <Icon pack="ph" name="caret-right" />
+        </button>
+        <a class="duim-nagel">
+            <img
+                src={`plaatjes/duimnagels/${tegel.duimnagelBestand}`}
+                alt={`${tegel.titel} video thumbnail`}
+                loading="lazy"
+            />
+            <h3>{tegel.titel}</h3>
+        </a>
+        <div class="beschrijving">
+            <slot />
+
+            <iframe
+                src={`https://www.youtube-nocookie.com/embed/${tegel.youtubeId}`}
+                title={`${tegel.titel} video`}
+                allow="encrypted-media; picture-in-picture"
+                allowfullscreen></iframe>
+        </div>
+    </li>
+</tegel-wrapper>
+
+<script>
+    class TegelElement extends HTMLElement {
+        constructor() {
+            super();
+
+            let isOpen = false;
+            const index = this.dataset.index;
+            let tegel = this.querySelector<HTMLLIElement>("li")!;
+
+            const toggleTegel = () => {
+                if (isOpen) tegel.classList.remove("tegel-open");
+                else tegel.classList.add("tegel-open");
+
+                isOpen = !isOpen;
+            };
+
+            const button = this.querySelector<HTMLButtonElement>("button")!;
+            button.addEventListener("click", () => toggleTegel());
+
+            const duimNagel =
+                this.querySelector<HTMLAnchorElement>("a.duim-nagel")!;
+            duimNagel.addEventListener("click", () => toggleTegel());
+        }
+    }
+
+    customElements.define("tegel-wrapper", TegelElement);
+</script>
+
+<style lang="scss">
+    tegel-wrapper {
+        width: 100%;
+
+        li {
+            width: 800px;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            position: relative;
+            list-style: none;
+            background-color: rgba(200, 200, 200, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+
+            transition: 0.2s ease-out;
+
+            button {
+                all: unset;
+                cursor: pointer;
+
+                position: absolute;
+                right: 0px;
+                bottom: 0px;
+
+                > svg {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    rotate: 45deg;
+                    transition: rotate 0.2s ease-out;
+                    color: var(--accentkleur);
+                }
+            }
+
+            a.duim-nagel {
+                img {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 16 / 9;
+                }
+            }
+
+            // div.beschrijving {
+            //     display: none;
+            // }
+
+            &.tegel-open {
+                width: 100%;
+                aspect-ratio: auto;
+
+                button > svg {
+                    rotate: -135deg;
+                }
+
+                // div.beschrijving {
+                //     display: initial;
+                // }
+            }
+        }
+    }
+</style>

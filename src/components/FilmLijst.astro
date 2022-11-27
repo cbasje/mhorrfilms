@@ -1,0 +1,80 @@
+---
+import Tegel from "../components/Tegel.astro";
+import { groupTegelsByJaar } from "../lib/date";
+import type { TegelFrontmatter } from "../lib/types";
+
+const tegels = await Astro.glob<TegelFrontmatter>("../pages/tegels/*.md");
+const groupedTegels = groupTegelsByJaar(tegels);
+---
+
+<section id="portfolio">
+    <h2>PORTFOLIO</h2>
+
+    <div class="tijdlijn">
+        {
+            tegels &&
+                Object.keys(groupedTegels).map((key, i) => (
+                    <div class="jaar">
+                        <span class="jaartal">{key}</span>
+
+                        <hr />
+
+                        <ul class="filmlijst">
+                            {groupedTegels[key] &&
+                                groupedTegels[key].map((t, i) => (
+                                    <Tegel index={i} tegel={t.frontmatter}>
+                                        <Fragment
+                                            set:html={t.compiledContent()}
+                                        />
+                                    </Tegel>
+                                ))}
+                        </ul>
+                    </div>
+                ))
+        }
+    </div>
+</section>
+
+<style lang="scss">
+    section#portfolio {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+
+        div.tijdlijn {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 1rem;
+
+            div.jaar {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 1rem;
+
+                span.jaartal {
+                    position: sticky;
+                    top: 1rem;
+                    width: 5rem;
+                }
+
+                hr {
+                    all: unset;
+
+                    align-self: stretch;
+                    border: 1px solid var(--accentkleur);
+                }
+
+                ul.filmlijst {
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    min-width: 1px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+</style>

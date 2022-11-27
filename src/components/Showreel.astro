@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<section id="showreel">
+    <video
+        id="showreel-player"
+        preload="none"
+        poster="plaatjes/duimnagels/showreel.jpg"
+        onclick="this.paused ? this.play() : this.pause();"
+    >
+        <source src="filmpjes/showreel.mp4" type="video/mp4" />
+    </video>
+
+    <button id="fullscreen-knop">
+        <Icon pack="ph" name="corners-out" />
+    </button>
+</section>
+
+<script>
+    const goFullscreen = () => {
+        let elem = document.querySelector("#showreel-player")!;
+
+        if (!document.fullscreenElement) {
+            elem.requestFullscreen().catch((err) => {
+                alert(
+                    `Error attempting to enable fullscreen mode: ${err.message} (${err.name})`
+                );
+            });
+        } else {
+            document.exitFullscreen();
+        }
+    };
+    document
+        .querySelector("#fullscreen-knop")!
+        .addEventListener("click", () => {
+            goFullscreen();
+            return false;
+        });
+</script>
+
+<style lang="scss">
+    section#showreel {
+        position: relative;
+    }
+
+    video {
+        width: 100vw;
+        height: 600px;
+    }
+
+    button#fullscreen-knop {
+        all: unset;
+        cursor: pointer;
+
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        padding: 0.25rem;
+
+        color: var(--accentkleur);
+
+        > svg {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+</style>

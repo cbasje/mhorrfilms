@@ -1,0 +1,37 @@
+---
+import { diffInYear } from "../lib/date";
+
+const today = new Date();
+const verjaardag = new Date("1999-07-10");
+const leeftijd = diffInYear(today, verjaardag);
+---
+
+<section id="intro">
+    <img src="plaatjes/Ruben.jpg" height="300px" id="profielfoto" />
+    <p>
+        Welkom bij Mhorrfilms. Ik ben Ruben van Briemen, een
+        {leeftijd}-jarige student Industrieel Ontwerpen in Delft. Naast mijn
+        studie steek ik veel tijd, energie en enthousiasme in film; eerst vooral
+        bij de studentenvereniging waar ik lid ben, maar de laatste tijd pak ik
+        meer filmprojecten op, waaronder bruiloftsvideografie.
+        <br />
+        Benieuwd naar wat ik maak? Neem een kijkje in mijn portfolio hieronder.
+    </p>
+</section>
+
+<style lang="scss">
+    section#intro {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-block: 200px;
+        gap: 5rem;
+        background-color: var(--wit);
+        color: var(--zwart);
+
+        p {
+            max-width: 35%;
+        }
+    }
+</style>

@@ -1,0 +1,165 @@
+---
+import { Icon } from "astro-icon";
+import Logo from "./Logo.astro";
+---
+
+<nav>
+    <div class="menu-balk">
+        <button class="menu-knop" id="knop0">
+            <p>MENU</p>
+            <Icon pack="ph" name="list" />
+        </button>
+    </div>
+
+    <div class="overlay">
+        <div class="menu-balk">
+            <button class="menu-knop" id="knop1">
+                <Icon pack="ph" name="x" />
+            </button>
+
+            <div class="logo">
+                <Logo />
+            </div>
+        </div>
+
+        <ul class="menu">
+            <li>
+                <a href="/">
+                    <div>
+                        <Icon pack="ph" name="caret-right" />
+                        <h2>HOME</h2>
+                        <Icon pack="ph" name="caret-left" />
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="/bruiloft">
+                    <div>
+                        <Icon pack="ph" name="caret-right" />
+                        <h2>BRUILOFTSFILMS</h2>
+                        <Icon pack="ph" name="caret-left" />
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    document
+        .querySelector(`.menu a[href="${window.location.pathname}"]`)
+        ?.classList.add("active");
+
+    const knop0 = document.querySelector<HTMLButtonElement>("button#knop0")!;
+    const knop1 = document.querySelector<HTMLButtonElement>("button#knop1")!;
+    const menubalk = document.querySelector<HTMLDivElement>("div.menu-balk")!;
+    const overlay = document.querySelector<HTMLDivElement>("div.overlay")!;
+
+    const toggleMenu = (toOpen = true) => {
+        menubalk.style.display = toOpen === true ? "none" : "flex";
+        overlay.style.display = toOpen === true ? "grid" : "none";
+    };
+
+    knop0.addEventListener("click", () => toggleMenu(true));
+    knop1.addEventListener("click", () => toggleMenu(false));
+</script>
+
+<style lang="scss">
+    div.menu-balk {
+        position: fixed;
+        top: 0px;
+        inset-inline: 0px;
+        z-index: 7;
+        display: flex;
+        height: 3.5rem;
+        justify-content: center;
+        align-items: center;
+
+        button.menu-knop {
+            all: unset;
+            cursor: pointer;
+
+            position: absolute;
+            right: 0px;
+            padding: 0.25rem;
+            display: flex;
+            gap: 1rem;
+
+            color: var(--accentkleur);
+
+            > svg {
+                width: 2.5rem;
+                height: 2.5rem;
+                color: var(--accentkleur);
+            }
+        }
+    }
+
+    div.overlay {
+        position: fixed;
+        inset: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--groen);
+        z-index: 6;
+        opacity: 0.95;
+        display: none;
+        place-content: center;
+    }
+
+    div.logo {
+        color: var(--accentkleur);
+
+        > :global(svg) {
+            width: auto;
+            height: 2.5rem;
+        }
+    }
+
+    ul.menu {
+        margin: 0px;
+        padding: 0px;
+
+        a {
+            text-decoration: none;
+        }
+        h2 {
+            color: var(--accentkleur);
+            margin: 4px;
+        }
+
+        li {
+            list-style-type: none;
+            display: block;
+
+            > a {
+                > div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                svg {
+                    width: 1.75rem;
+                    height: 1.75rem;
+                    opacity: 0;
+                    transition: 0.5s;
+                    color: var(--accentkleur);
+                }
+
+                &:hover {
+                    svg {
+                        width: 1.5rem;
+                        height: 1.5rem;
+                        opacity: 0.9;
+                    }
+                }
+
+                &.active svg {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+</style>
