@@ -1,6 +1,7 @@
 ---
 id: 4
 titel: "Lumen"
+datum: 2019-01-25
 youtubeId: "Kmpw6d5DVNg"
 duimnagelBestand: "4lumen.jpg"
 ---

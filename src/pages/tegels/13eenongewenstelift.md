@@ -1,7 +1,8 @@
 ---
 id: 13
 titel: "Een Ongewenste Lift"
-youtubeId: "VfuJ7Sv9Ar4"
+datum: 2022-04-26
+youtubeId: "6LUGK_lQm-Y"
 duimnagelBestand: "13eenongewenstelift.jpg"
 ---
 

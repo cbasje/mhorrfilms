@@ -1,6 +1,7 @@
 ---
 id: 9
 titel: "Machtig Mooi"
+datum: 2020-06-04
 youtubeId: "01kzRDhdcYw"
 duimnagelBestand: "9machtigmooi.jpg"
 ---

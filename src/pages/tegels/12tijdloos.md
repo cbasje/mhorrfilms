@@ -1,6 +1,7 @@
 ---
 id: 12
 titel: "Tijdloos"
+datum: 2021-04-22
 youtubeId: "9rXmPGNczdE"
 duimnagelBestand: "12tijdloos.jpg"
 ---

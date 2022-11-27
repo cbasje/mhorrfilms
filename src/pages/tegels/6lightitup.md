@@ -1,6 +1,7 @@
 ---
 id: 6
 titel: "Light it up!"
+datum: 2019-05-24
 youtubeId: "fPq5X5v9K2s"
 duimnagelBestand: "6lightitup.jpg"
 ---

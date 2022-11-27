@@ -1,6 +1,7 @@
 ---
 id: 5
 titel: "IFES-conferentie Live It!"
+datum: 2019-03-05
 youtubeId: "C-TEPNOPk6c"
 duimnagelBestand: "5liveit2019.jpg"
 ---

@@ -1,6 +1,7 @@
 ---
 id: 11
 titel: "Gateway of India"
+datum: 2020-12-17
 youtubeId: "JDAUpwCbUog"
 duimnagelBestand: "11gatewayofindia.jpg"
 ---

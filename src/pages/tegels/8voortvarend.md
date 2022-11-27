@@ -1,6 +1,7 @@
 ---
 id: 8
 titel: "Voortvarend"
+datum: 2019-12-20
 youtubeId: "i1b3fFXB_PQ"
 duimnagelBestand: "8voortvarend.jpg"
 ---

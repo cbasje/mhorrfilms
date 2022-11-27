@@ -1,6 +1,7 @@
 ---
 id: 7
 titel: "Bruiloft Julian & Michelle"
+datum: 2019-07-08
 youtubeId: "4Q3894EsVLY"
 duimnagelBestand: "7trouwdagjulianenmichelle.jpg"
 ---

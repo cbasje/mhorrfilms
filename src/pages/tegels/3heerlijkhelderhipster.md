@@ -1,6 +1,7 @@
 ---
 id: 3
 titel: "Heerlijk Helder Hipster"
+datum: 2020-01-29
 youtubeId: "fBQsFaPLVB4"
 duimnagelBestand: "3heerlijkhelderhipster.jpg"
 ---

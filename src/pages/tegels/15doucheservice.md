@@ -1,6 +1,7 @@
 ---
 id: 15
 titel: "Bedrijfsvideo Doucheservice"
+datum: 2022-08-08
 youtubeId: "VfuJ7Sv9Ar4"
 duimnagelBestand: "15doucheservice.jpg"
 ---
