@@ -1,11 +1,27 @@
 ---
 import { Icon } from "astro-icon";
 import Logo from "./Logo.astro";
+
+type Pagina = "/" | "/bruiloft";
+
+export interface Props {
+    opPagina: Pagina;
+}
+const { opPagina } = Astro.props;
+
+interface Navigatie {
+    titel: string;
+    pagina: Pagina;
+}
+const navigatie: Navigatie[] = [
+    { titel: "Home", pagina: "/" },
+    { titel: "Bruiloftsfilms", pagina: "/bruiloft" },
+];
 ---
 
 <nav>
     <div class="menu-balk">
-        <button class="menu-knop" id="knop0">
+        <button class="menu-knop knop-open">
             <span>MENU</span>
             <Icon pack="ph" name="list" />
         </button>
@@ -13,7 +29,7 @@ import Logo from "./Logo.astro";
 
     <div class="overlay">
         <div class="menu-balk">
-            <button class="menu-knop" id="knop1">
+            <button class="menu-knop knop-dicht">
                 <Icon pack="ph" name="x" />
             </button>
 
@@ -23,35 +39,32 @@ import Logo from "./Logo.astro";
         </div>
 
         <ul class="menu">
-            <li>
-                <a href="/">
-                    <div>
-                        <Icon pack="ph" name="caret-right" />
-                        <h2>HOME</h2>
-                        <Icon pack="ph" name="caret-left" />
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="/bruiloft">
-                    <div>
-                        <Icon pack="ph" name="caret-right" />
-                        <h2>BRUILOFTSFILMS</h2>
-                        <Icon pack="ph" name="caret-left" />
-                    </div>
-                </a>
-            </li>
+            {
+                navigatie.map((n) => (
+                    <li>
+                        <a
+                            href={n.pagina}
+                            aria-current={opPagina === n.pagina && "page"}
+                            class:list={{
+                                active: opPagina === n.pagina,
+                            }}
+                        >
+                            <Icon pack="ph" name="caret-right" />
+                            <h2>{n.titel}</h2>
+                            <Icon pack="ph" name="caret-left" />
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </div>
 </nav>
 
 <script>
-    document
-        .querySelector(`.menu a[href="${window.location.pathname}"]`)
-        ?.classList.add("active");
-
-    const knop0 = document.querySelector<HTMLButtonElement>("button#knop0")!;
-    const knop1 = document.querySelector<HTMLButtonElement>("button#knop1")!;
+    const knopOpen =
+        document.querySelector<HTMLButtonElement>("button.knop-open")!;
+    const knopDicht =
+        document.querySelector<HTMLButtonElement>("button.knop-dicht")!;
     const menubalk = document.querySelector<HTMLDivElement>("div.menu-balk")!;
     const overlay = document.querySelector<HTMLDivElement>("div.overlay")!;
 
@@ -60,8 +73,8 @@ import Logo from "./Logo.astro";
         overlay.style.display = toOpen === true ? "grid" : "none";
     };
 
-    knop0.addEventListener("click", () => toggleMenu(true));
-    knop1.addEventListener("click", () => toggleMenu(false));
+    knopOpen.addEventListener("click", () => toggleMenu(true));
+    knopDicht.addEventListener("click", () => toggleMenu(false));
 </script>
 
 <style lang="scss">
@@ -134,12 +147,11 @@ import Logo from "./Logo.astro";
             display: block;
 
             > a {
-                > div {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                text-transform: uppercase;
 
                 svg {
                     width: 1.75rem;
