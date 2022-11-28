@@ -8,6 +8,10 @@
     --hoofdkleur: var(--zwart);
     --accentkleur: var(--goud);
 }
+::selection {
+    background-color: var(--groen);
+    color: var(--wit);
+}
 
 body {
     margin: 0;
@@ -22,9 +26,17 @@ body {
     }
 }
 
-a,
 button {
     cursor: pointer;
+}
+a {
+    color: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+
+    :is(p, table) > &:hover {
+        opacity: 0.85;
+    }
 }
 
 iframe {

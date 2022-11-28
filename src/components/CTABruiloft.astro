@@ -24,15 +24,21 @@
         }
 
         a {
+            user-select: none;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 5px;
+            padding-block: 1rem;
+            padding-inline: 1.75rem;
+            border-radius: 0.25rem;
             background-color: var(--accentkleur);
 
             font-size: 33px;
             font-weight: 600;
             line-height: 43px;
             color: var(--zwart);
+
+            &:hover {
+                color: var(--donkergrijs);
+            }
         }
     }
 </style>
