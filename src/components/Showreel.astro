@@ -42,27 +42,28 @@ import { Icon } from "astro-icon";
 <style lang="scss">
     section#showreel {
         position: relative;
-    }
 
-    video {
-        width: 100vw;
-        height: 600px;
-    }
+        video {
+            width: 100vw;
+            height: 600px;
+            object-fit: cover;
+        }
 
-    button#fullscreen-knop {
-        all: unset;
-        cursor: pointer;
+        button#fullscreen-knop {
+            all: unset;
+            cursor: pointer;
 
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-        padding: 0.25rem;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+            padding: 0.25rem;
 
-        color: var(--accentkleur);
+            color: var(--accentkleur);
 
-        > svg {
-            width: 2.5rem;
-            height: 2.5rem;
+            > svg {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
         }
     }
 </style>

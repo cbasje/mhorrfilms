@@ -39,6 +39,10 @@ const { titel, achtergrondBestand, plaatjeTitel } = Astro.props;
             height: 100%;
             object-fit: cover;
             z-index: -1;
+
+            &[src="/plaatjes/fotobruiloft1.jpg"] {
+                object-position: 25% 50%;
+            }
         }
 
         h1 {

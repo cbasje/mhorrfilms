@@ -62,7 +62,8 @@ const { index, tegel } = Astro.props;
 
 <style lang="scss">
     li[is="tegel-wrapper"] {
-        width: 800px;
+        width: 100%;
+        max-width: 800px;
         height: auto;
         aspect-ratio: 16 / 9;
         position: relative;
@@ -125,15 +126,35 @@ const { index, tegel } = Astro.props;
                 position: absolute;
                 inset-inline: 0px;
                 bottom: 0px;
-                width: 100%;
+                width: 85%;
                 margin-inline: 2rem;
                 margin-block: 1.5rem;
                 z-index: 3;
             }
         }
 
+        div.beschrijving {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-block: 2rem;
+            padding-inline: 1rem;
+
+            > :global(p) {
+                margin: 0;
+
+                :global(img) {
+                    width: 100%;
+                    max-width: 500px;
+                    height: auto;
+                    aspect-ratio: 16 / 9;
+                    object-fit: cover;
+                }
+            }
+        }
+
         &.tegel-open {
-            width: 100%;
+            max-width: 100%;
             aspect-ratio: auto;
 
             button > svg {
@@ -143,6 +164,20 @@ const { index, tegel } = Astro.props;
 
         &:hover a.duim-nagel div.overlay {
             opacity: 0;
+        }
+    }
+
+    @media only screen and (width < 678px) {
+        li[is="tegel-wrapper"] {
+            button > svg {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            a.duim-nagel h3 {
+                margin-inline: 1rem;
+                margin-block: 0.5rem;
+            }
         }
     }
 </style>

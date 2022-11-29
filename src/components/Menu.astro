@@ -102,6 +102,7 @@ const navigatie: Navigatie[] = [
             display: flex;
             align-items: center;
             gap: 1rem;
+            font-weight: bold;
 
             color: var(--accentkleur);
 
@@ -176,6 +177,15 @@ const navigatie: Navigatie[] = [
                 &.active svg {
                     opacity: 0.5;
                 }
+            }
+        }
+    }
+
+    @media only screen and (width < 678px) {
+        nav div.menu-balk {
+            button.menu-knop {
+                gap: 0.5rem;
+                padding-inline: 0.75rem;
             }
         }
     }
