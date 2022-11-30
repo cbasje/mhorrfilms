@@ -10,7 +10,7 @@ export interface Props {
 const { index, tegel } = Astro.props;
 ---
 
-<li is="tegel-wrapper" data-index={index}>
+<li is="tegel-wrapper" data-index={index} aria-label="Tegel">
     <a class="duim-nagel" role="banner">
         <img
             src={`plaatjes/duimnagels/${tegel.duimnagelBestand}`}
@@ -29,8 +29,8 @@ const { index, tegel } = Astro.props;
             allow="encrypted-media; picture-in-picture"
             allowfullscreen></iframe>
     </div>
-    <button>
-        <Icon pack="ph" name="caret-right" />
+    <button aria-label="Open beschrijving van deze tegel">
+        <Icon pack="ph" name="caret-right" aria-hidden />
     </button>
 </li>
 

@@ -21,16 +21,20 @@ const navigatie: Navigatie[] = [
 
 <nav>
     <div class="menu-balk">
-        <button class="menu-knop knop-open">
+        <button class="menu-knop knop-open" aria-label="Open menu" tabindex="1">
             <span>MENU</span>
-            <Icon pack="ph" name="list" />
+            <Icon pack="ph" name="list" aria-hidden />
         </button>
     </div>
 
     <div class="overlay">
         <div class="menu-balk">
-            <button class="menu-knop knop-dicht">
-                <Icon pack="ph" name="x" />
+            <button
+                class="menu-knop knop-dicht"
+                aria-label="Dicht menu"
+                tabindex="2"
+            >
+                <Icon pack="ph" name="x" aria-hidden />
             </button>
 
             <div class="logo">
@@ -49,9 +53,9 @@ const navigatie: Navigatie[] = [
                                 active: opPagina === n.pagina,
                             }}
                         >
-                            <Icon pack="ph" name="caret-right" />
+                            <Icon pack="ph" name="caret-right" aria-hidden />
                             <h2>{n.titel}</h2>
-                            <Icon pack="ph" name="caret-left" />
+                            <Icon pack="ph" name="caret-left" aria-hidden />
                         </a>
                     </li>
                 ))
