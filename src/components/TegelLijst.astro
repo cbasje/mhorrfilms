@@ -8,14 +8,14 @@ const tegels = await getCollection("tegels");
 const groupedTegels = groupTegelsByJaar(tegels);
 ---
 
-<section id="portfolio">
-    <h2>PORTFOLIO</h2>
+<div id="portfolio">
+    <h1>PORTFOLIO</h1>
 
     <div class="tijdlijn">
         {
             tegels &&
                 Object.keys(groupedTegels).map((key, i) => (
-                    <div class="jaar">
+                    <section class="jaar">
                         <span class="jaartal">{key}</span>
 
                         <hr />
@@ -32,11 +32,11 @@ const groupedTegels = groupTegelsByJaar(tegels);
                                         <Tegel index={i} tegel={t} />
                                     ))}
                         </ul>
-                    </div>
+                    </section>
                 ))
         }
     </div>
-</section>
+</div>
 
 <style lang="scss">
     section#portfolio {
@@ -80,7 +80,7 @@ const groupedTegels = groupTegelsByJaar(tegels);
 
     @media only screen and (width < 678px) {
         section#portfolio {
-            h2 {
+            h1 {
                 padding-inline: 0.5rem;
             }
 

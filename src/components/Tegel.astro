@@ -19,7 +19,7 @@ const { Content, headings } = await tegel.render();
             loading="lazy"
         />
         <div class="overlay" aria-hidden="true"></div>
-        <h3>{headings.at(0)?.text ?? "Tegel"}</h3>
+        <h2>{headings.at(0)?.text ?? "Tegel"}</h2>
     </a>
     <div class="beschrijving">
         <Content />
@@ -117,7 +117,7 @@ const { Content, headings } = await tegel.render();
                 transition: 0.9s ease-out;
             }
 
-            h3 {
+            h2 {
                 position: absolute;
                 inset-inline: 0px;
                 bottom: 0px;
@@ -169,7 +169,7 @@ const { Content, headings } = await tegel.render();
                 height: 2rem;
             }
 
-            a.duim-nagel h3 {
+            a.duim-nagel h2 {
                 margin-inline: 1rem;
                 margin-block: 0.5rem;
             }
