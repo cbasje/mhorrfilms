@@ -1,15 +1,15 @@
 ---
 import CTABruiloft from "../components/CTABruiloft.astro";
-import TegelLijst from "../components/TegelLijst.astro";
 import Hero from "../components/Hero.astro";
 import Intro from "../components/Intro.astro";
 import Menu from "../components/Menu.astro";
 import Showreel from "../components/Showreel.astro";
+import TegelLijst from "../components/TegelLijst.astro";
 import Voetnoot from "../components/Voetnoot.astro";
-import Layout from "../layouts/Layout.astro";
+import Main from "../layouts/main.astro";
 ---
 
-<Layout>
+<Main>
     <Menu opPagina="/" />
 
     <Hero achtergrondBestand="/filmpjes/showreel-header.mp4" />
@@ -25,4 +25,4 @@ import Layout from "../layouts/Layout.astro";
     </main>
 
     <Voetnoot />
-</Layout>
+</Main>

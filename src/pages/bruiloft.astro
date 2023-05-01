@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
 import Menu from "../components/Menu.astro";
 import Voetnoot from "../components/Voetnoot.astro";
-import Hero from "../components/Hero.astro";
 import Youtube from "../components/Youtube.astro";
+import Main from "../layouts/main.astro";
 ---
 
-<Layout>
+<Main>
     <Menu opPagina="/bruiloft" />
 
     <Hero
@@ -30,6 +30,4 @@ import Youtube from "../components/Youtube.astro";
     </main>
 
     <Voetnoot />
-</Layout>
-
-<style lang="scss"></style>
+</Main>
