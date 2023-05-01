@@ -6,4 +6,6 @@ youtubeId: "JDAUpwCbUog"
 duimnagelBestand: "11gatewayofindia.jpg"
 ---
 
+# Gateway of India
+
 De Dies (verjaardag van de vereniging) van studentenvereniging C.S.R. Delft werd in 2021 gevierd onder het thema 'Gateway of India'. In dit filmpje stelt de Diescommissie zichzelf voor en presenteert haar thema aan de leden.

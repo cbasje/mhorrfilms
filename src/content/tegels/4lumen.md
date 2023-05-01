@@ -6,4 +6,6 @@ youtubeId: "Kmpw6d5DVNg"
 duimnagelBestand: "4lumen.jpg"
 ---
 
+# Lumen
+
 In het tweede jaar van de studie Industrieel Ontwerpen hebben we tijdens een ontwerpproject een conceptontwerp gemaakt voor de zonwering van de toekomst. Met dit filmpje lieten wij als team de werking van het concept zien als afsluiting van het project. Mijn teamgenoten hebben het acteerwerk op zich genomen en ik heb het gefilmd en gemonteerd.

@@ -6,4 +6,6 @@ youtubeId: "TBbul6MCyMc"
 duimnagelBestand: "2delftstudieismaardehelft.jpg"
 ---
 
+# Delft: Studie is maar de Helft
+
 In deze driedelige serie leggen twee eerstejaars studenten van studentenvereniging C.S.R. Delft uit wat het studentenleven inhoudt en hoe studie, ontplooiing en gezelligheid samengaan bij C.S.R.

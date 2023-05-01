@@ -1,31 +1,32 @@
 ---
 import Icon from "astro-icon";
-import type { TegelFrontmatter } from "../lib/types";
+import type { CollectionEntry } from "astro:content";
 
 export interface Props {
     index: number;
-    tegel: TegelFrontmatter;
+    tegel: CollectionEntry<"tegels">;
 }
 
 const { index, tegel } = Astro.props;
+const { Content, headings } = await tegel.render();
 ---
 
 <li is="tegel-wrapper" data-index={index} aria-label="Tegel">
     <a class="duim-nagel" role="banner">
         <img
-            src={`plaatjes/duimnagels/${tegel.duimnagelBestand}`}
-            alt={`${tegel.titel} video thumbnail`}
+            src={`plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
+            alt={`${headings.at(0)?.text ?? "Tegel"} video thumbnail`}
             loading="lazy"
         />
         <div class="overlay" aria-hidden="true"></div>
-        <h3>{tegel.titel}</h3>
+        <h3>{headings.at(0)?.text ?? "Tegel"}</h3>
     </a>
     <div class="beschrijving">
-        <slot />
+        <Content />
 
         <iframe
-            src={`https://www.youtube-nocookie.com/embed/${tegel.youtubeId}`}
-            title={`${tegel.titel} video`}
+            src={`https://www.youtube-nocookie.com/embed/${tegel.data.youtubeId}`}
+            title={`${headings.at(0)?.text ?? "Tegel"} video`}
             allow="encrypted-media; picture-in-picture"
             allowfullscreen></iframe>
     </div>

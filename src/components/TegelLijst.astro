@@ -1,9 +1,10 @@
 ---
-import Tegel from "../components/Tegel.astro";
+import Tegel from "./Tegel.astro";
 import { groupTegelsByJaar } from "../lib/date";
-import type { TegelFrontmatter } from "../lib/types";
 
-const tegels = await Astro.glob<TegelFrontmatter>("../pages/tegels/*.md");
+import { getCollection, getEntryBySlug } from "astro:content";
+// Get all entries from a collection. Requires the name of the collection as an argument.
+const tegels = await getCollection("tegels");
 const groupedTegels = groupTegelsByJaar(tegels);
 ---
 
@@ -22,11 +23,7 @@ const groupedTegels = groupTegelsByJaar(tegels);
                         <ul class="filmlijst">
                             {groupedTegels[key] &&
                                 groupedTegels[key].map((t, i) => (
-                                    <Tegel index={i} tegel={t.frontmatter}>
-                                        <Fragment
-                                            set:html={t.compiledContent()}
-                                        />
-                                    </Tegel>
+                                    <Tegel index={i} tegel={t} />
                                 ))}
                         </ul>
                     </div>

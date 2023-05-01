@@ -1,5 +1,4 @@
-import type { MarkdownInstance } from "astro";
-import type { TegelFrontmatter } from "./types";
+import type { CollectionEntry } from "astro:content";
 
 /**
  * Difference between two dates in the number of years
@@ -16,15 +15,15 @@ export const diffInYear = (a: Date, b: Date) => {
  * @returns Object van 'tegels' gegroepeerd op jaartal
  */
 export const groupTegelsByJaar = <
-    T extends MarkdownInstance<TegelFrontmatter>,
+    T extends CollectionEntry<"tegels">,
     K extends keyof T
 >(
     arr: T[]
 ): Record<string, T[]> => {
     return arr.reduce(
         (acc, item) => (
-            (acc[new Date(item.frontmatter.datum).getFullYear()] = [
-                ...(acc[new Date(item.frontmatter.datum).getFullYear()] || []),
+            (acc[new Date(item.data.datum).getFullYear()] = [
+                ...(acc[new Date(item.data.datum).getFullYear()] || []),
                 item,
             ]),
             acc
