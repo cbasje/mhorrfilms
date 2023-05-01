@@ -22,9 +22,15 @@ const groupedTegels = groupTegelsByJaar(tegels);
 
                         <ul class="filmlijst">
                             {groupedTegels[key] &&
-                                groupedTegels[key].map((t, i) => (
-                                    <Tegel index={i} tegel={t} />
-                                ))}
+                                groupedTegels[key]
+                                    .sort(
+                                        (a, b) =>
+                                            b.data.datum.valueOf() -
+                                            a.data.datum.valueOf()
+                                    )
+                                    .map((t, i) => (
+                                        <Tegel index={i} tegel={t} />
+                                    ))}
                         </ul>
                     </div>
                 ))
