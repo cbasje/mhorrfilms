@@ -23,12 +23,6 @@ const { Content, headings } = await tegel.render();
     </a>
     <div class="beschrijving">
         <Content />
-
-        <iframe
-            src={`https://www.youtube-nocookie.com/embed/${tegel.data.youtubeId}`}
-            title={`${headings.at(0)?.text ?? "Tegel"} video`}
-            allow="encrypted-media; picture-in-picture"
-            allowfullscreen></iframe>
     </div>
     <button aria-label="Open beschrijving van deze tegel">
         <Icon pack="ph" name="caret-right" aria-hidden />
@@ -143,14 +137,14 @@ const { Content, headings } = await tegel.render();
 
             > :global(p) {
                 margin: 0;
+            }
 
-                :global(img) {
-                    width: 100%;
-                    max-width: 500px;
-                    height: auto;
-                    aspect-ratio: 16 / 9;
-                    object-fit: cover;
-                }
+            :global(img) {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
             }
         }
 

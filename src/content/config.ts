@@ -5,7 +5,6 @@ const tegelCollection = defineCollection({
         id: z.number(),
         titel: z.string(),
         datum: z.date(),
-        youtubeId: z.string(),
         duimnagelBestand: z.string(),
     }),
 });

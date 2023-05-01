@@ -1,0 +1,14 @@
+---
+export interface Props {
+    titel: string;
+    youtubeId: string;
+}
+
+const { titel, youtubeId } = Astro.props;
+---
+
+<iframe
+    src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
+    title={`${titel ?? "Tegel"} video`}
+    allow="encrypted-media; picture-in-picture"
+    allowfullscreen></iframe>
