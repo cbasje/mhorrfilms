@@ -15,7 +15,11 @@ const { titel, achtergrondBestand, plaatjeTitel } = Astro.props;
             </video>
         ) : (
             <>
-                <img src={achtergrondBestand} alt={plaatjeTitel} />
+                <img
+                    src={achtergrondBestand}
+                    alt={plaatjeTitel}
+                    loading="lazy"
+                />
                 <h1>{titel}</h1>
             </>
         )
