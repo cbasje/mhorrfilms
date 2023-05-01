@@ -3,19 +3,19 @@ import Icon from "astro-icon";
 import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-    index: number;
     tegel: CollectionEntry<"tegels">;
 }
 
-const { index, tegel } = Astro.props;
+const { tegel } = Astro.props;
 const { Content, headings } = await tegel.render();
 ---
 
-<li is="tegel-wrapper" data-index={index} aria-label="Tegel">
-    <a class="duim-nagel" role="banner">
+<li is="tegel-wrapper" aria-label="Tegel">
+    <a class="duim-nagel">
         <img
             src={`plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
             alt={`${headings.at(0)?.text ?? "Tegel"} video thumbnail`}
+            role="banner"
             loading="lazy"
         />
         <div class="overlay" aria-hidden="true"></div>

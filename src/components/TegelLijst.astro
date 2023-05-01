@@ -1,9 +1,8 @@
 ---
-import Tegel from "./Tegel.astro";
+import { getCollection } from "astro:content";
 import { groupTegelsByJaar } from "../lib/date";
+import Tegel from "./Tegel.astro";
 
-import { getCollection, getEntryBySlug } from "astro:content";
-// Get all entries from a collection. Requires the name of the collection as an argument.
 const tegels = await getCollection("tegels");
 const groupedTegels = groupTegelsByJaar(tegels);
 ---
@@ -28,9 +27,7 @@ const groupedTegels = groupTegelsByJaar(tegels);
                                             b.data.datum.valueOf() -
                                             a.data.datum.valueOf()
                                     )
-                                    .map((t, i) => (
-                                        <Tegel index={i} tegel={t} />
-                                    ))}
+                                    .map((t) => <Tegel tegel={t} />)}
                         </ul>
                     </section>
                 ))
@@ -39,13 +36,13 @@ const groupedTegels = groupTegelsByJaar(tegels);
 </div>
 
 <style lang="scss">
-    section#portfolio {
+    div#portfolio {
         div.tijdlijn {
             display: flex;
             flex-direction: column-reverse;
             gap: 1rem;
 
-            div.jaar {
+            section.jaar {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
