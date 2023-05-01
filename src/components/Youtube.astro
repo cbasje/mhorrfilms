@@ -11,4 +11,5 @@ const { titel, youtubeId } = Astro.props;
     src={`https://www.youtube-nocookie.com/embed/${youtubeId}`}
     title={`${titel ?? "Tegel"} video`}
     allow="encrypted-media; picture-in-picture"
-    allowfullscreen></iframe>
+    allowfullscreen
+    loading="lazy"></iframe>
