@@ -9,12 +9,11 @@ import Main from "../layouts/main.astro";
 <Main>
     <Menu opPagina="/bruiloft" />
 
-    <Hero
-        titel="Bruiloftsfilms"
-        achtergrondBestand="/plaatjes/fotobruiloft1.jpg"
-    />
+    <Hero achtergrondBestand="/plaatjes/fotobruiloft1.jpg" />
 
     <main>
+        <h1>Bruiloftsfilms</h1>
+
         <p>
             Wil je jullie bruiloft laten filmen? Neem vrijblijvend contact op
             via
@@ -31,3 +30,10 @@ import Main from "../layouts/main.astro";
 
     <Voetnoot />
 </Main>
+
+<style lang="scss">
+    h1 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+    }
+</style>

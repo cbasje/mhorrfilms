@@ -8,7 +8,7 @@ const groupedTegels = groupTegelsByJaar(tegels);
 ---
 
 <div id="portfolio">
-    <h1>PORTFOLIO</h1>
+    <h1>Portfolio</h1>
 
     <div class="tijdlijn">
         {
@@ -37,6 +37,11 @@ const groupedTegels = groupTegelsByJaar(tegels);
 
 <style lang="scss">
     div#portfolio {
+        h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+
         div.tijdlijn {
             display: flex;
             flex-direction: column-reverse;
@@ -76,15 +81,16 @@ const groupedTegels = groupTegelsByJaar(tegels);
     }
 
     @media only screen and (width < 678px) {
-        section#portfolio {
+        div#portfolio {
             h1 {
+                font-size: 3rem;
                 padding-inline: 0.5rem;
             }
 
             div.tijdlijn {
                 gap: 3rem;
 
-                div.jaar {
+                section.jaar {
                     flex-direction: column;
                     align-items: flex-start;
                     gap: 1rem;
