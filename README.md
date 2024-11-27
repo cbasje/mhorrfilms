@@ -6,17 +6,6 @@ This is a remake of a friend's website to help him drastically improve accessibi
 
 ## Stack
 
--   Site generator: [Astro](https://astro.build/)
--   Deployment: [Netlify](https://netlify.com/)
--   Styling: [SCSS](https://sass-lang.com/documentation/syntax)
--   Icons: [Phosphor Icons](https://phosphoricons.com/)
-
-## Development
-
-| Command             | Action                                           |
-| :------------------ | :----------------------------------------------- |
-| `yarn`              | Installs dependencies                            |
-| `yarn dev`          | Starts local dev server at `localhost:3000`      |
-| `yarn build`        | Builds production site to `./dist/`              |
-| `yarn astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `yarn astro --help` | Get help using the Astro CLI                     |
+- Site generator: [Astro](https://astro.build/)
+- Deployment: [Github Page](https://5-0-0-beta.docs.astro.build/en/guides/deploy/github/)
+- Icons: [Phosphor Icons](https://phosphoricons.com/)
