@@ -16,9 +16,9 @@ export const diffInYear = (a: Date, b: Date) => {
  */
 export const groupTegelsByJaar = <
     T extends CollectionEntry<"tegels">,
-    K extends keyof T
+    K extends keyof T,
 >(
-    arr: T[]
+    arr: T[],
 ): Record<string, T[]> => {
     return arr.reduce(
         (acc, item) => (
@@ -28,6 +28,6 @@ export const groupTegelsByJaar = <
             ]),
             acc
         ),
-        {} as Record<string, T[]>
+        {} as Record<string, T[]>,
     );
 };

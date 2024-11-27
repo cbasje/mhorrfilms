@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <section id="showreel">
@@ -13,7 +13,7 @@ import { Icon } from "astro-icon";
     </video>
 
     <button id="fullscreen-knop" aria-label="Open video in volledig scherm">
-        <Icon pack="ph" name="corners-out" aria-hidden />
+        <Icon name="ph:corners-out" aria-hidden />
     </button>
 </section>
 
@@ -39,7 +39,7 @@ import { Icon } from "astro-icon";
         });
 </script>
 
-<style lang="scss">
+<style>
     section#showreel {
         position: relative;
 

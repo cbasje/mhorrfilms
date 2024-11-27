@@ -1,13 +1,13 @@
 ---
-import Icon from "astro-icon";
-import type { CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import { render, type CollectionEntry } from "astro:content";
 
 export interface Props {
     tegel: CollectionEntry<"tegels">;
 }
 
 const { tegel } = Astro.props;
-const { Content, headings } = await tegel.render();
+const { Content, headings } = await render(tegel);
 ---
 
 <li is="tegel-wrapper" aria-label="Tegel">
@@ -27,7 +27,7 @@ const { Content, headings } = await tegel.render();
         </div>
     </div>
     <button aria-label="Open beschrijving van deze tegel">
-        <Icon pack="ph" name="caret-right" aria-hidden />
+        <Icon name="ph:caret-right" aria-hidden />
     </button>
 </li>
 
@@ -57,7 +57,7 @@ const { Content, headings } = await tegel.render();
     customElements.define("tegel-wrapper", TegelWrapper, { extends: "li" });
 </script>
 
-<style lang="scss">
+<style>
     li[is="tegel-wrapper"] {
         width: 100%;
         max-width: 800px;

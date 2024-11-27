@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Logo from "./Logo.astro";
 
 type Pagina = "/" | "/bruiloft";
@@ -21,20 +21,16 @@ const navigatie: Navigatie[] = [
 
 <nav>
     <div class="menu-balk">
-        <button class="menu-knop knop-open" aria-label="Open menu" tabindex="1">
+        <button class="menu-knop knop-open" aria-label="Open menu">
             <span>MENU</span>
-            <Icon pack="ph" name="list" aria-hidden />
+            <Icon name="ph:list" aria-hidden />
         </button>
     </div>
 
     <div class="overlay">
         <div class="menu-balk">
-            <button
-                class="menu-knop knop-dicht"
-                aria-label="Dicht menu"
-                tabindex="2"
-            >
-                <Icon pack="ph" name="x" aria-hidden />
+            <button class="menu-knop knop-dicht" aria-label="Dicht menu">
+                <Icon name="ph:x" aria-hidden />
             </button>
 
             <a href="/" class="logo">
@@ -53,9 +49,9 @@ const navigatie: Navigatie[] = [
                                 active: opPagina === n.pagina,
                             }}
                         >
-                            <Icon pack="ph" name="caret-right" aria-hidden />
+                            <Icon name="ph:caret-right" aria-hidden />
                             <span>{n.titel}</span>
-                            <Icon pack="ph" name="caret-left" aria-hidden />
+                            <Icon name="ph:caret-left" aria-hidden />
                         </a>
                     </li>
                 ))
@@ -81,7 +77,7 @@ const navigatie: Navigatie[] = [
     knopDicht.addEventListener("click", () => toggleMenu(false));
 </script>
 
-<style lang="scss">
+<style>
     nav {
         user-select: none;
     }

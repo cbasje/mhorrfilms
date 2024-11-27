@@ -1,8 +1,9 @@
 ---
-import "../styles/stijl.scss";
+import { ClientRouter } from "astro:transitions";
+import "../styles/main.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
     <head>
         <meta charset="UTF-8" />
@@ -64,6 +65,8 @@ import "../styles/stijl.scss";
             href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap"
             rel="stylesheet"
         />
+
+        <ClientRouter />
     </head>
     <body>
         <slot />
