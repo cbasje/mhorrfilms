@@ -10,54 +10,36 @@ const { tegel } = Astro.props;
 const { Content, headings } = await render(tegel);
 ---
 
-<li is="tegel-wrapper" aria-label="Tegel">
-    <a class="duim-nagel">
-        <img
-            src={`plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
-            alt={`${headings.at(0)?.text ?? "Tegel"} video thumbnail`}
-            role="banner"
-            loading="lazy"
-        />
-        <div class="overlay" aria-hidden="true"></div>
-    </a>
-    <div class="beschrijving">
-        <div class="beschrijving-inner">
+<li aria-label="Tegel">
+    <details>
+        <summary>
+            <img
+                src={`plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
+                alt={`${headings.at(0)?.text ?? "Tegel"} video thumbnail`}
+                role="banner"
+                loading="lazy"
+            />
+            <div class="overlay" aria-hidden="true"></div>
+
+            <h2>{tegel.data.titel}</h2>
+
+            <Icon name="ph:caret-right" aria-hidden="true" />
+        </summary>
+
+        <div class="beschrijving">
             <Content />
         </div>
-    </div>
-    <button aria-label="Open beschrijving van deze tegel">
-        <Icon name="ph:caret-right" aria-hidden />
-    </button>
+    </details>
 </li>
 
-<script>
-    class TegelWrapper extends HTMLLIElement {
-        constructor() {
-            super();
-
-            let isOpen = false;
-
-            const toggleTegel = () => {
-                if (isOpen) this.classList.remove("is-open");
-                else this.classList.add("is-open");
-
-                isOpen = !isOpen;
-            };
-
-            const button = this.querySelector<HTMLButtonElement>("button")!;
-            button.addEventListener("click", () => toggleTegel());
-
-            const duimNagel =
-                this.querySelector<HTMLAnchorElement>("a.duim-nagel")!;
-            duimNagel.addEventListener("click", () => toggleTegel());
-        }
+<style>
+    li {
+        list-style: none;
+        padding: 0px;
     }
 
-    customElements.define("tegel-wrapper", TegelWrapper, { extends: "li" });
-</script>
-
-<style>
-    li[is="tegel-wrapper"] {
+    details {
+        padding: 0px;
         width: 100%;
         max-width: 800px;
         height: auto;
@@ -66,46 +48,31 @@ const { Content, headings } = await render(tegel);
         background-color: rgba(200, 200, 200, 0.1);
         border-radius: 0.25rem;
         overflow: hidden;
+        user-select: none;
 
         transition: 0.2s ease-out;
 
-        button {
-            all: unset;
-            cursor: pointer;
+        summary {
+            list-style: none;
 
-            position: absolute;
-            right: 0px;
-            bottom: 0px;
-
-            > svg {
-                width: 2.5rem;
-                height: 2.5rem;
-                rotate: 45deg;
-                transition: rotate 0.2s ease-out;
-                color: var(--accentkleur);
-            }
-        }
-
-        a.duim-nagel {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
+            display: grid;
+            grid-template-areas: stack;
+            justify-content: end;
+            align-items: end;
 
             position: relative;
             isolation: isolate;
 
             img {
-                position: absolute;
-                inset: 0px;
+                grid-area: stack;
                 width: 100%;
-                height: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
                 object-fit: cover;
             }
 
             div.overlay {
-                position: absolute;
-                inset: 0px;
+                grid-area: stack;
                 width: 100%;
                 height: 100%;
                 background-image: linear-gradient(
@@ -113,52 +80,57 @@ const { Content, headings } = await render(tegel);
                     rgba(0, 0, 0, 0),
                     rgba(0, 0, 0, 0.8)
                 );
-                z-index: 2;
-                transition: 0.9s ease-out;
+                transition: opacity 0.9s ease-out;
+                pointer-events: none;
+            }
+
+            h2 {
+                grid-area: stack;
+                width: fit-content;
+                height: fit-content;
+                margin-block: 1.5rem;
+                margin-inline: 2rem;
+
+                font-size: 2rem;
+            }
+
+            svg {
+                grid-area: stack;
+                justify-self: end;
+                width: 2.5rem;
+                height: 2.5rem;
+                margin: 1rem;
+
+                rotate: 45deg;
+                transition: rotate 0.2s ease-out;
+                color: var(--accentkleur);
             }
         }
 
         div.beschrijving {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.2s ease-out;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 2rem;
+            padding-bottom: 4rem;
 
-            position: relative;
-            margin-top: -6rem;
-            z-index: 1;
+            > :global(p) {
+                margin: 0;
+            }
 
-            pointer-events: none;
-
-            div.beschrijving-inner {
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-                padding-bottom: 6rem;
-                padding-inline: 2rem;
-
-                > :global(h2) {
-                    font-size: 2rem;
-                }
-
-                > :global(p) {
-                    margin: 0;
-                }
-
-                :global(img) {
-                    width: 100%;
-                    max-width: 500px;
-                    height: auto;
-                    aspect-ratio: 16 / 9;
-                    object-fit: cover;
-                }
+            :global(img) {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
             }
         }
 
-        &.is-open {
+        &[open] {
             max-width: 100%;
 
-            button > svg {
+            summary svg {
                 rotate: -135deg;
             }
 
@@ -173,11 +145,9 @@ const { Content, headings } = await render(tegel);
     }
 
     @media only screen and (width < 678px) {
-        li[is="tegel-wrapper"] {
-            button > svg {
-                width: 2rem;
-                height: 2rem;
-            }
+        li summary svg {
+            width: 2rem;
+            height: 2rem;
         }
     }
 </style>
