@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
@@ -9,9 +10,9 @@ import { browserslistToTargets } from "lightningcss";
 export default defineConfig({
     output: "static",
 
-    integrations: [mdx(), icon()],
+    integrations: [mdx(), icon(), sitemap()],
 
-    site: "https://mhorrfilms.benjami.in",
+    site: "https://mhorrfilms.nl",
 
     vite: {
         css: {
