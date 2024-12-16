@@ -1,15 +1,19 @@
 ---
-import Hero from "../components/Hero.astro";
+import { Image } from "astro:assets";
 import Menu from "../components/Menu.astro";
 import Voetnoot from "../components/Voetnoot.astro";
 import Youtube from "../components/Youtube.astro";
 import Main from "../layouts/main.astro";
+
+import FotoBruiloft from "../assets/fotobruiloft1.jpg";
 ---
 
 <Main>
     <Menu opPagina="/bruiloft" />
 
-    <Hero achtergrondBestand="/plaatjes/fotobruiloft1.jpg" />
+    <header>
+        <Image src={FotoBruiloft} alt="Foto van mij die een bruiloft filmt" />
+    </header>
 
     <main>
         <h1>Bruiloftsfilms</h1>
@@ -32,6 +36,28 @@ import Main from "../layouts/main.astro";
 </Main>
 
 <style>
+    header {
+        user-select: none;
+        height: 100vh;
+        position: relative;
+        display: grid;
+        place-content: center;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            object-position: 40% 50%;
+        }
+
+        h1 {
+            text-transform: uppercase;
+        }
+    }
+
     h1 {
         font-size: 2.5rem;
         text-transform: uppercase;

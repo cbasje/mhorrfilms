@@ -1,9 +1,11 @@
+---
+import { Image } from "astro:assets";
+
+import FotoBruiloft from "../assets/fotobruiloft1.jpg";
+---
+
 <section id="bruiloft">
-    <img
-        src="/plaatjes/fotobruiloft1.jpg"
-        alt="Foto van mij die een bruiloft filmt"
-        loading="lazy"
-    />
+    <Image src={FotoBruiloft} alt="Foto van mij die een bruiloft filmt" />
     <a href="/bruiloft">Bruiloft laten filmen?</a>
 </section>
 

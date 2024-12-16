@@ -1,18 +1,23 @@
 ---
 import CTABruiloft from "../components/CTABruiloft.astro";
-import Hero from "../components/Hero.astro";
 import Intro from "../components/Intro.astro";
 import Menu from "../components/Menu.astro";
 import Showreel from "../components/Showreel.astro";
 import TegelLijst from "../components/TegelLijst.astro";
 import Voetnoot from "../components/Voetnoot.astro";
 import Main from "../layouts/main.astro";
+
+import ShowreelHeader from "../assets/showreel-header.mp4";
 ---
 
 <Main>
     <Menu opPagina="/" />
 
-    <Hero achtergrondBestand="/filmpjes/showreel-header.mp4" />
+    <header>
+        <video autoplay muted loop>
+            <source src={ShowreelHeader} type="video/mp4" />
+        </video>
+    </header>
 
     <Intro />
 
@@ -26,3 +31,22 @@ import Main from "../layouts/main.astro";
 
     <Voetnoot />
 </Main>
+
+<style>
+    header {
+        user-select: none;
+        height: 100vh;
+        position: relative;
+        display: grid;
+        place-content: center;
+
+        video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    }
+</style>

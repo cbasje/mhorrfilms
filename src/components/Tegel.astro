@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import { render, type CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -13,9 +14,11 @@ const { Content, headings } = await render(tegel);
 <li aria-label="Tegel">
     <details>
         <summary>
-            <img
-                src={`plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
+            <Image
+                src={`/plaatjes/duimnagels/${tegel.data.duimnagelBestand}`}
                 alt={`${headings.at(0)?.text ?? "Tegel"} video thumbnail`}
+                width={1920}
+                height={1080}
                 role="banner"
                 loading="lazy"
             />

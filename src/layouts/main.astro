@@ -1,63 +1,54 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/main.css";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+const { title = "Mhorrfilms", description = "" } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
 <html lang="nl">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="theme-color" content="#13332b" />
+        <!-- Global Metadata -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
-        <title>Mhorrfilms</title>
 
+        <!-- Theming -->
+        <meta name="theme-color" content="#13332b" />
+        <!-- FIXME: <link rel="icon" href="/favicon.ico" sizes="32x32" /> -->
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link
-            rel="apple-touch-icon"
-            sizes="57x57"
-            href="/graphics/apple-icon-57x57.png"
+            rel="manifest"
+            href='/manifest.webmanifest'
         />
-        <link
-            rel="apple-touch-icon"
-            sizes="60x60"
-            href="/graphics/apple-icon-60x60.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="72x72"
-            href="/graphics/apple-icon-72x72.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href="/graphics/apple-icon-76x76.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="114x114"
-            href="/graphics/apple-icon-114x114.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="120x120"
-            href="/graphics/apple-icon-120x120.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="144x144"
-            href="/graphics/apple-icon-144x144.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="152x152"
-            href="/graphics/apple-icon-152x152.png"
-        />
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/graphics/apple-icon-180x180.png"
-        />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href='/sitemap-index.xml' /> -->
+
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="profile" />
+        <meta property="og:profile:first_name" content="Ruben" />
+        <meta property="og:profile:last_name" content="van Briemen" />
+        <meta property="og:profile:gender" content="male" />
+
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
+        <meta property="og:locale" content="nl-NL" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

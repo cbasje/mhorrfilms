@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import { diffInYear } from "../lib/date";
+
+import Ruben from "../assets/Ruben.png";
 
 const today = new Date();
 const verjaardag = new Date("1999-07-10");
@@ -7,12 +10,13 @@ const leeftijd = diffInYear(today, verjaardag);
 ---
 
 <section id="intro">
-    <img src="/plaatjes/Ruben.png" alt="Foto van mij, Ruben" loading="lazy" />
+    <Image src={Ruben} alt="Foto van mij, Ruben" />
     <p>
         Welkom bij Mhorrfilms. Ik ben Ruben van Briemen, een
-        {leeftijd}-jarige industrieel ontwerper in Delft. Naast mijn
-        studie heb ik veel tijd, energie en enthousiasme in film gestoken; eerst vooral
-        bij de studentenvereniging waar ik lid was, later vooral met freelance opdrachten.
+        {leeftijd}-jarige industrieel ontwerper in Delft. Naast mijn studie heb
+        ik veel tijd, energie en enthousiasme in film gestoken; eerst vooral bij
+        de studentenvereniging waar ik lid was, later vooral met freelance
+        opdrachten.
         <br />
         Benieuwd naar wat ik maak? Neem een kijkje in mijn portfolio hieronder.
     </p>
