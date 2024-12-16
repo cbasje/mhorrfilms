@@ -1,5 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
+
+import "@fontsource-variable/raleway";
 import "../styles/main.css";
 
 interface Props {
@@ -49,13 +51,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <meta property="og:description" content={description} />
         <!-- <meta property="og:image" content={new URL(image, Astro.url)} /> -->
         <meta property="og:locale" content="nl-NL" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap"
-            rel="stylesheet"
-        />
 
         <ClientRouter />
     </head>
